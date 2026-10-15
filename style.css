@@ -1,0 +1,225 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #020617;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  user-select: none;
+  position: relative;
+}
+
+/* Hình nền động đổi màu theo game */
+.bg-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 30%, rgba(30, 58, 138, 0.4), transparent 70%);
+  transition: background 0.6s ease;
+  z-index: 0;
+}
+
+/* Thanh trạng thái đỉnh đầu (Top Bar) */
+header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 4rem 1rem;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #38bdf8, #2563eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.top-status {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1.1rem;
+  color: #94a3b8;
+}
+
+.gamepad-badge {
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  color: #38bdf8;
+  font-size: 0.9rem;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+/* Thanh cuộn danh sách game PS5 */
+main {
+  position: relative;
+  z-index: 2;
+  padding: 0 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.current-title {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+  transition: opacity 0.2s ease;
+}
+
+/* Thanh cuộn danh sách game PS5 */
+.carousel-container {
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  overflow-x: auto;
+  /* Thêm đệm trái/phải 1.5rem để khi card đầu/cuối zoom lên không bị chạm viền */
+  padding: 2rem 1.5rem 2.5rem;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  justify-content: flex-start;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Chỉ bật đệm căn giữa màn hình khi xem trên điện thoại */
+@media (max-width: 768px) {
+  .carousel-container {
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 calc(50% - 100px);
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .carousel-container::before,
+  .carousel-container::after {
+    content: '';
+    flex: 0 0 calc(50% - 100px);
+  }
+}
+
+/* Thẻ Card game */
+.card {
+  flex: 0 0 160px;
+  height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background: #1e293b;
+  border: 3px solid transparent;
+  outline: none;
+  transform: scale(0.92);
+  opacity: 0.65;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  scroll-snap-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+.card-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0.6rem 0.6rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Hiệu ứng Active nổi bật phóng to chuẩn PS5 */
+.card.active {
+  flex: 0 0 200px;
+  height: 280px;
+  transform: scale(1.05);
+  opacity: 1;
+  border-color: #38bdf8;
+  box-shadow: 0 0 35px rgba(56, 189, 248, 0.45), 0 15px 35px rgba(0, 0, 0, 0.7);
+}
+
+/* Thanh hướng dẫn phím bấm dưới đáy */
+footer {
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem 4rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.controls-hint {
+  display: flex;
+  gap: 1.8rem;
+}
+
+.btn-hint {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #334155;
+  color: #f8fafc;
+  font-weight: 700;
+  font-size: 0.75rem;
+  margin-right: 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Tối ưu giao diện cho màn hình dọc / điện thoại */
+@media (max-width: 768px) {
+  header, main, footer {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .current-title {
+    font-size: 2rem;
+  }
+}

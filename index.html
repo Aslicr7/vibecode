@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nguycr vibe coding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Inter:wght@400;600&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-glow" id="bgGlow"></div>
+
+  <header>
+    <div class="user-profile">
+      <div class="avatar">N</div>
+      <span>NGUYCR VIBE CODING</span>
+    </div>
+    <div class="top-status">
+      <div class="gamepad-badge" id="gamepadBadge">🎮 Gamepad Connected</div>
+      <div id="clock">12:00</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="current-title" id="titleDisplay">TANK AZ ONLINE</div>
+    <div class="carousel-container" id="carousel">
+      <!-- Item 1: Game Xe Tăng -->
+      <div class="card active" tabindex="0" data-title="Tank AZ Online" data-url="https://tank.nguycr.io.vn" data-color="rgba(37, 99, 235, 0.5)">
+        <img src="image/tankaz.png" alt="Tank Game">
+        <div class="card-info">TANK AZ ONLINE</div>
+      </div>
+
+      <!-- Item 2: Phòng Hát Kara -->
+      <div class="card" tabindex="0" data-title="Karaoke Vibe Studio" data-url="https://kara.nguycr.io.vn/tv" data-color="rgba(168, 85, 247, 0.5)">
+        <img src="image/karaoke.jpg" alt="Karaoke">
+        <div class="card-info">KARAOKE STUDIO</div>
+      </div>
+
+      <!-- Item 3: Game Xếp Tháp 3D -->
+      <div class="card" tabindex="0" data-title="Tower Builder 3D" data-url="https://tower.nguycr.io.vn" data-color="rgba(245, 158, 11, 0.5)">
+        <img src="image/towerbuilder.jpg" alt="Tower Builder 3D">
+        <div class="card-info">TOWER BUILDER 3D</div>
+      </div>
+
+      <!-- Item 4: Hỏa Tuyến (Copy) -->
+      <div class="card" tabindex="0" data-title="HỎA TUYẾN (COPY)" data-url="https://hoatuyen.nguycr.io.vn" data-color="rgba(239, 68, 68, 0.6)">
+        <img src="image/hoatuyen.jpg" alt="Hỏa Tuyến (Copy))">
+        <div class="card-info">HỎA TUYẾN (COPY)</div>
+      </div>
+
+      <!-- Item 5: Dự Án Sắp Ra Mắt (Ô dấu hỏi chấm cuối cùng) -->
+      <div class="card" tabindex="0" data-title="DỰ ÁN SẮP RA MẮT" data-url="" data-color="rgba(139, 92, 246, 0.45)">
+        <img src="image/comingsoon.jpg" alt="Coming Soon">
+        <div class="card-info">COMING SOON</div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="controls-hint">
+      <div><span class="btn-hint">←→</span> Di chuyển / D-Pad</div>
+      <div><span class="btn-hint">X/↵</span> Chọn</div>
+      <div><span class="btn-hint">O/Esc</span> Quay lại</div>
+    </div>
+    <div style="font-size: 0.85rem; color: #64748b;">nguycr.io.vn</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
